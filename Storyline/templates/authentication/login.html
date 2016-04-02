@@ -1,27 +1,33 @@
 {% extends 'base/base.html' %}
-{% load material_form %}
-{% block pagetitle %} story | Login {% endblock %}
-{% block content %}
-<div class="row">
+{% load material_form %}    
+{% block pagetitle %} Co-story | Login {% endblock %}
+{% block content %} 
+
+<div class="row" >
     <div class="col s12 m8 l6 offset-m2 offset-l3">
         <div class="card-panel">
-            <h4>Login</h4>
-            <form action = "{% url 'base' %}" method = 'post'>
+        	<div class="center">
+            <h4 align="center">Login</h4>
+            <img  src="../../static/authentication/images/icon-login2.png" alt="" class=" circle responsive-img valign profile-image-login">
+            </div>
+            <form action = "{% url 'login' %}" method = 'post' id="login-form"  >
                 {% csrf_token %}
                 {% form form=form %}{% endform %}
-                <div class="row">
-                    <div class="col s12">
-                        <button type="submit" name="login" class="btn waves-effect waves-light left">Log In</button>
+                <div class="row ">
+                    <div class="col s12 ">
+                        <button type="submit" id ="login-btn" name="login" class="btn waves-effect blue 	waves-light left">Log In</button>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col s12">
-                        <a href="{% url 'signup' %}"> Create Account </a>
-                    </div>
-                </div>
+                
+
+                
             </form>
-        </div>
-    </div>
 </div>
+<div class="center">
+                If New User -<a href = "/account/signup"> SIGNUP </a>
+             <br>
+               <a href="{% url 'forgot_password' %}"> Forgot Password?</a>
+                
+                </div>
+
 {% endblock %}
-~           
